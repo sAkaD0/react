@@ -4,13 +4,13 @@ const book = [
 
   {
     id:1,
-    url:"https://fastly.picsum.photos/id/21/200/200.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
+    url:"https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
     width: "200px",
     height: "200px",
   },
   {
     id:2,
-    url:"https://fastly.picsum.photos/id/21/100/100.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
+    url:"https://fastly.picsum.photos/id/21/3008/2008.jpg?hmac=T8DSVNvP-QldCew7WD4jj_S3mWwxZPqdF0CNPksSko4",
     width: "200px",
     height: "200px",
   }
