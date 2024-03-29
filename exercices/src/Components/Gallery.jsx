@@ -1,5 +1,7 @@
 import Photo from "./Photo";
 
+import React, { useState } from 'react';
+
 const book = [
 
     {
@@ -84,21 +86,53 @@ const book = [
     }
   ]
 
+
 const Gallery = () => {
+  const [texte,SetTexte] =useState("");
+  const [id, SetId] = useState(true);
+  
+  const handleChange = (event) => {
+    SetTexte(event.target.value);
+  };
+
+  const changerId = (event) =>{
+    SetId(event.target.checked);
+  }
+
   return (
     <>
       <h1>Galerie de photos</h1>
-      {
-        book.map((element) => {
-          return(
-            <>
-              <p>{element.author} #{element.id}</p>
-              <Photo url={element.download_url}></Photo>
-            </>
-          );
+      <label htmlFor="search">Search By Author</label>
+      <input type="text" id="search" onChange={handleChange}></input>
 
-        })
-      }
+      <label htmlFor="Hide">Hide ID</label>
+      <input type="checkbox" id="Hide" onChange={changerId}></input>
+      {
+      book.map((element) => {
+
+        if (element.author.includes(texte)){
+          if(id == true){
+            return(
+              <>
+                <p>{element.author}</p>
+                <Photo url={element.download_url}></Photo>
+              </>
+            );
+          }
+          else {
+            return(
+              <>
+                <p>{element.author} #{element.id}</p>
+                <Photo url={element.download_url}></Photo>
+              </>
+            );
+          }
+          
+        }
+        
+
+      })
+    }
     </>
   );
 };
