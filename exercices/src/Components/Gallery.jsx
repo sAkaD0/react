@@ -89,8 +89,8 @@ const book = [
 
 const Gallery = () => {
   const [texte,SetTexte] =useState("");
-  const [id, SetId] = useState(true);
-  
+  const [id, SetId] = useState(false);
+
   const handleChange = (event) => {
     SetTexte(event.target.value);
   };
