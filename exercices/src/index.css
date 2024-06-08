@@ -20,10 +20,26 @@ html {
   animation: spin 1s ease infinite;
 }
 
+#headerPanier {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+#headerPanier div {
+  border-left: 1px solid #e9ecef;
+  border-right: 1px solid #e9ecef;
+
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
