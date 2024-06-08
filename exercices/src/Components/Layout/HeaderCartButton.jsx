@@ -19,7 +19,9 @@ function headerCart() {
                 <Modal.Header closeButton>
                     <Modal.Title>Panier</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, TU ES DANS LE PANIER!</Modal.Body>
+                <Modal.Body>
+                    <Cart />
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close

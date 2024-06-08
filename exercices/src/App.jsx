@@ -1,15 +1,12 @@
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Header from './Components/Layout/Header'
 import Product from './Components/Product/Product'
 
 import { createContext } from 'react'
-
 import { useReducer } from 'react'
 
 
@@ -22,19 +19,19 @@ function cartReducer(state, action) {
     case 'add':
       return addCart(state, action.product);
     case 'remove':
-      return state.filter((product) => product.id !== action.product.id);
+      return state.filter((product) => product.id != action.product.id);
     default:
       return state;
   }
 }
 
 function addCart(state, product) {
-  if (state.lenght === 0) {
+  if (state.lenght == 0) {
     return [{ ...product, quantity: 1 }];
   }
   else {
-    const productIndex = state.findIndex((p) => p.id === product.id, p.name === product.name, p.price === product.price);
-    if (productIndex === -1) {
+    const productIndex = state.findIndex((p) => p.id == product.id);
+    if (productIndex == -1) {
       return [...state, { ...product, quantity: 1 }];
     }
     else {

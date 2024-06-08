@@ -1,10 +1,9 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ProductItemForm from './ProductItemForm';
 
 
 function ProductItem(props) {
-        return (
+    return (
         <Card style={{ width: '75%' }}>
             <Card.Img variant="top" src={props.mainImage} />
             <Card.Body>
@@ -14,11 +13,11 @@ function ProductItem(props) {
                     <br></br>
                     {Number(props.price).toLocaleString('be-FR')}€
                     <br></br>
-                    <ProductItemForm />
                 </Card.Text>
+                <ProductItemForm name={props.name} price={Number(props.price).toLocaleString('be-FR')} id={props.id} />
             </Card.Body>
         </Card>
-        );
+    );
 }
 
-        export default ProductItem
+export default ProductItem
