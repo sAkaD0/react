@@ -4,8 +4,7 @@ import ProductItemForm from './ProductItemForm';
 
 
 function ProductItem(props) {
-
-    return (
+        return (
         <Card style={{ width: '75%' }}>
             <Card.Img variant="top" src={props.mainImage} />
             <Card.Body>
@@ -19,7 +18,7 @@ function ProductItem(props) {
                 </Card.Text>
             </Card.Body>
         </Card>
-    );
+        );
 }
 
-export default ProductItem
+        export default ProductItem
