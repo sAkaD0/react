@@ -4,11 +4,18 @@ import { useContext } from 'react';
 import { CartContext } from '../../App';
 
 function ProductItemForm(props) {
+
   let contexte = useContext(CartContext);
   const cartButton = (event) => {
     event.preventDefault();
-    contexte[1]({ type: 'add', product: { id: props.id, name: props.name, price: props.price } });
-    console.log(contexte[0]);
+    if (event.target[0].value === '' || parseInt(event.target[0].value) <= 0) {
+      event.target[0].value = 1;
+    }
+    else {
+      event.target[0].value = event.target[0].value;
+    }
+    contexte[1]({ type: 'add', product: { id: props.id, name: props.name, price: props.price, quantity: parseInt(event.target[0].value) } });
+
   }
 
   return (
@@ -19,8 +26,7 @@ function ProductItemForm(props) {
           Ajouter au panier
         </Button>
       </Form>
-
     </>
   );
 }
-export default ProductItemForm
+export default ProductItemForm;

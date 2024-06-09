@@ -7,7 +7,6 @@ import "../../index.css";
 
 function Cart() {
     let contexte = useContext(CartContext);
-    let total;
     console.log(contexte[0]);
     return (
         <>
@@ -28,14 +27,7 @@ function Cart() {
                 </span>
             </div>
             <div id="total">
-                <p>Total : {contexte[0].map((product) => {
-                    const price = Number(product.price);
-                    const quantity = Number(product.quantity);
-                    if (!isNaN(price) && !isNaN(quantity)) {
-                        return total = total + (price * quantity);
-                    }
-                    return total;
-                }, 0)}€</p>
+                cart total : {contexte[0].reduce((acc, product) => acc + parseFloat(product.price) * product.quantity, 0)}€
             </div>
         </>
     )

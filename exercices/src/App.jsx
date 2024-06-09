@@ -10,6 +10,10 @@ import Product from './Components/Product/Product'
 import { createContext } from 'react'
 import { useReducer } from 'react'
 
+import { Routes, Route } from 'react-router-dom'
+import Error from './Components/Error/Error'
+
+import ProductOne from './Components/Product/ProductOne'
 
 import './App.css'
 export const CartContext = createContext();
@@ -28,16 +32,16 @@ function cartReducer(state, action) {
 
 function addCart(state, product) {
   if (state.lenght == 0) {
-    return [{ ...product, quantity: 1 }];
+    return [{ ...product }];
   }
   else {
     const productIndex = state.findIndex((p) => p.id == product.id);
     if (productIndex == -1) {
-      return [...state, { ...product, quantity: 1 }];
+      return [...state, { ...product }];
     }
     else {
       const updatedProducts = [...state];
-      updatedProducts[productIndex].quantity++;
+      updatedProducts[productIndex].quantity += product.quantity;
       return updatedProducts;
     }
   }
@@ -68,7 +72,11 @@ function App() {
 
       <CartContext.Provider value={[cart, dispatch]}>
         <Header />
-        <Product product={product} />
+        <Routes>
+          <Route path="/" element={<Product product={product} />} />
+          <Route path="/product/:id" element={<ProductOne product={product} />} /> 
+          <Route path="*" element={<Error />} />
+        </Routes>
       </CartContext.Provider>
     </>
   );
